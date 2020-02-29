@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+     db:
+         image: oracle/database: 19.3.0-se2 
+         ports:
+             - 49161:1521
+         volumes:
+             - .:/tmp
+         environment:
+             ORACLE_ALLOW_REMOTE=true
+             MYSQL_ROOT_USER: root
+             MYSQL_ROOT_PASSWORD: password
+             MYSQL_DATABASE: my_database_name
+	expose:
+	     - 1521
+	networks:
+	     - oraclenet
+networks:
+     oraclenet: {}
