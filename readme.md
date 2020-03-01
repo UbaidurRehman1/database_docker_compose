@@ -17,6 +17,7 @@
 - SID
     - ORCLCDB
 - Do some manullay work
+---
     - docker exec -it oracledb_db_1 bash;
     - ORACLE_PWD=$1
     - ORACLE_SID="`grep $ORACLE_HOME /etc/oratab | cut -d: -f1`"
@@ -27,4 +28,4 @@
     - alter session set "_ORACLE_SCRIPT"=true;  
     - CREATE USER root IDENTIFIED BY password;
     - GRANT ALL PRIVILEGES TO root;
-
+---
