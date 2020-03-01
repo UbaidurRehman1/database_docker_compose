@@ -1,15 +1,13 @@
 version: "3"
 services:
  db:
-  image: oracle/database:19.3.0-se2 
+  image: oracle/database:19.3.0-se2
   ports:
-   - 49161:1521
+   - 1521:1521
   volumes:
    - oracledb:/duo
   environment:
    ORACLE_ALLOW_REMOTE: 'true'
-   MYSQL_ROOT_USER: 'root'
-   MYSQL_ROOT_PASSWORD: 'password'
   expose:
    - 1521
   networks:
