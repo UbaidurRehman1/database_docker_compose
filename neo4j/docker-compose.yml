@@ -1,0 +1,22 @@
+version: '3'
+services:
+  neo4j:
+    image: neo4j-v4
+    restart: always
+    ports:
+    - '7474:7474'
+    - '7687:7687'
+    expose:
+    - '7474'
+    - '7687'
+    volumes:
+    - neo4j_data:/var/lib/neo4j/data
+    - neo4j_conf:/var/lib/neo4j/conf
+    networks:
+    - neo4jnetwork
+volumes:
+  neo4j_data:
+  neo4j_conf:
+networks:
+  neo4jnetwork: {}
+
