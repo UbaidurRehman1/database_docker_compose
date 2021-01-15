@@ -1,0 +1,21 @@
+version: '3.5'
+services:
+    oc-db:
+        container_name: oc-db
+        image: postgres:9.4.0
+        environment:
+            POSTGRES_USER: clinica
+            POSTGRES_PASSWORD: clinica
+        ports:
+            - "5432:5432"
+        volumes:
+            -   type: volume
+                source: openclinica_db
+                target: /var/lib/postgresql/data
+            -   type: bind
+                source: ./config/postgresql.conf
+                target: /var/lib/postgresql/data/postgresql.conf
+
+volumes:
+    openclinica_db:
+        external: true

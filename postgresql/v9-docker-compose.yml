@@ -1,8 +1,9 @@
 version: '3'
 services:
  db:
-  image: postgres
+  image: postgres:9.4.0
   restart: always
+  container_name: postgres9dot4dot0
   environment:
    POSTGRES_USER: 'root'
    POSTGRES_PASSWORD: 'password'
@@ -11,11 +12,11 @@ services:
   expose:
    - '5432'
   volumes:
-   - postgresqlvol:/var/lib/postgresql/data
+   - postgresqlvolv9:/var/lib/postgresql/data
   networks:
-   - postgresqlnet
+   - postgresqlnetv9
 volumes:
-  postgresqlvol:
+  postgresqlvolv9:
 networks:
-  postgresqlnet: {}
+  postgresqlnetv9: {}
 

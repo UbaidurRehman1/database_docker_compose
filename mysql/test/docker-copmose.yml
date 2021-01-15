@@ -1,0 +1,54 @@
+version: '3'
+services:
+#  kaldi-service:
+#    build: ./kaldi
+#    expose:
+#      - 9001
+#    ports:
+#      - 9001:9001
+#    networks:
+#      - sn
+#    volumes:
+#    - fypVol:/data/upload_tmp
+#    - fypVol:/tmp
+#  sentiment-service:
+#    build: ./SentimentService
+#    expose:
+#      - 9101
+#    ports:
+#      - 9101:9101
+#    networks:
+#      - sn
+#    volumes:
+#      - fypVol:/data/upload_tmp
+#      - fypVol:/tmp
+#  data-analytic-service:
+#    build: ./dataAnalyticsService
+#    expose:
+#      - 9201
+#    ports:
+#      - 9201:9201
+#    networks:
+#      - sn
+#    volumes:
+#      - fypVol:/tmp
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_USER: 'root'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - fypSqlVol:/var/lib/mysql
+    networks:
+      - sn
+networks:
+  sn: {}
+volumes:
+  fypVol: {}
+  fypSqlVol: {}
